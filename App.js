@@ -9,12 +9,14 @@
 import React from 'react';
 import {StatusBar} from 'react-native';
 import HomeScreen from './src/screens/HomeScreen';
+import DestinationSearch from './src/screens/DestinationSearch';
+import SearchResults from './src/screens/SearchResults';
 
 const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <HomeScreen />
+      <SearchResults />
     </>
   );
 };
