@@ -39,18 +39,6 @@ const HomeMap = (props) => {
             />
           </Marker>
         ))}
-        {/*        <FlatList
-          data={cars}
-          renderItem={({item}) => (
-            <Marker
-              coordinate={{latitude: item.latitude, longitude: item.longitude}}>
-              <Image
-                source={getImage(item.type)}
-                style={{width: 60, height: 60, resizeMode: 'contain'}}
-              />
-            </Marker>
-          )}
-        />*/}
       </MapView>
     </View>
   );
