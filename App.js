@@ -16,7 +16,7 @@ const App: () => React$Node = () => {
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <SearchResults />
+      <HomeScreen />
     </>
   );
 };
