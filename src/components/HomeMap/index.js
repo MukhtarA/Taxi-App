@@ -35,7 +35,16 @@ const HomeMap = (props) => {
             coordinate={{latitude: car.latitude, longitude: car.longitude}}>
             <Image
               source={getImage(car.type)}
-              style={{width: 60, height: 60, resizeMode: 'contain'}}
+              style={{
+                width: 60,
+                height: 60,
+                resizeMode: 'contain',
+                transform: [
+                  {
+                    rotate: `${car.heading}deg`,
+                  },
+                ],
+              }}
             />
           </Marker>
         ))}

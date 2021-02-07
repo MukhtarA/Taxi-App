@@ -1,7 +1,9 @@
 # Taxi-App
 ### Run the development server
-```$ yarn start```
+```yarn|npm start```
 ### Run the app on iOS
-```$ yarn iOS```
+```npx pod-install```
+
+```yarn|npm ios```
 ### Run the app on android
-```$ yarn android```
+```yarn|npm android```
