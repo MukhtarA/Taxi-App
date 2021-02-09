@@ -8,9 +8,15 @@ const PlaceRow = ({data}) => {
   return (
     <View style={style.row}>
       <View style={style.iconContainer}>
-        <Entypo name="location-pin" color="white" size={20} />
+        {data.description === 'Home' ? (
+          <Entypo name="home" color="white" size={20} />
+        ) : (
+          <Entypo name="location-pin" color="white" size={20} />
+        )}
       </View>
-      <Text style={style.locationText}>{data.description}</Text>
+      <Text style={style.locationText}>
+        {data.description || data.vicinity}
+      </Text>
     </View>
   );
 };

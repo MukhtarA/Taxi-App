@@ -12,10 +12,12 @@ import HomeScreen from './src/screens/HomeScreen';
 import DestinationSearch from './src/screens/DestinationSearch';
 import SearchResults from './src/screens/SearchResults';
 import Geolocation from '@react-native-community/geolocation';
+import HomeSearch from "./src/components/HomeSearch";
+
 navigator.geolocation = require('@react-native-community/geolocation');
 
 const App: () => React$Node = () => {
-  const androidPermission = async () => {
+  const androidPermissions = async () => {
     try {
       const granted = await PermissionsAndroid.request(
         PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -35,20 +37,19 @@ const App: () => React$Node = () => {
     } catch (err) {
       console.warn(err);
     }
-
-    useEffect(() => {
-      if (Platform.OS === 'android') {
-        androidPermission();
-      } else {
-        // request
-        Geolocation.requestAuthorization();
-      }
-    }, []);
   };
+  useEffect(() => {
+    if (Platform.OS === 'android') {
+      androidPermissions();
+    } else {
+      Geolocation.requestAuthorization();
+    }
+  }, []);
+
   return (
     <>
       <StatusBar barStyle="dark-content" />
-      <DestinationSearch />
+      <HomeScreen />
     </>
   );
 };
