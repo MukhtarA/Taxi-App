@@ -3,15 +3,18 @@ import {View} from 'react-native';
 import MapView, {PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import MapViewDirections from 'react-native-maps-directions';
 
+import {useRoute} from '@react-navigation/native';
+
 const RouteMap = (props) => {
   const API_KEY = 'AIzaSyATEu3fPvgqTOjXP2m_4xWh5WSKTYi2aMg';
+  const route = useRoute();
   const origin = {
-    latitude: 28.450627,
-    longitude: -16.263045,
+    latitude: route.params.destinationPlace.data.geometry.location.lat,
+    longitude: route.params.destinationPlace.data.geometry.location.lng,
   };
   const destination = {
-    latitude: 28.456208,
-    longitude: -16.259098,
+    latitude: route.params.originPlace.data.geometry.location.lat,
+    longitude: route.params.originPlace.data.geometry.location.lng,
   };
 
   return (
@@ -26,8 +29,8 @@ const RouteMap = (props) => {
         showsUserLocation={true}
         style={{width: '100%', height: '100%'}}
         initialRegion={{
-          latitude: 28.450627,
-          longitude: -16.263045,
+          latitude: route.params.originPlace.data.geometry.location.lat,
+          longitude: route.params.originPlace.data.geometry.location.lng,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>

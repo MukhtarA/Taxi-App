@@ -11,9 +11,9 @@ const CarTypes = (props) => {
     console.warn('confirm');
   };
   return (
-    <View>
+    <View style={{backgroundColor: '#fff'}}>
       {types.map((type) => (
-        <CarTypeRow type={type} />
+        <CarTypeRow type={type} key={type.id} />
       ))}
 
       <Pressable style={styles.confirmButton} onPress={confirm}>

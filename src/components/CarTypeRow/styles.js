@@ -14,7 +14,6 @@ const styles = StyleSheet.create({
   middleContainer: {
     flex: 1,
     marginHorizontal: 10,
-
   },
   type: {
     fontWeight: 'bold',

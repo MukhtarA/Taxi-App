@@ -4,6 +4,7 @@ import styles from './styles';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import PlaceRow from './PlaceRow';
 import {GooglePlaceData} from 'react-native-google-places-autocomplete';
+import {useNavigation} from '@react-navigation/native';
 
 const homePlace = {
   description: 'Home',
@@ -17,14 +18,20 @@ const workPlace = {
 const DestinationSearch = (props) => {
   const [originPlace, setOriginPlace] = useState(null);
   const [destinationPlace, setDestinationPlace] = useState(null);
+  const navigation = useNavigation();
+  const goToSearchResults = () => {
+    if (originPlace && destinationPlace) {
+      navigation.navigate('SearchResults', {
+        originPlace,
+        destinationPlace,
+      });
+    }
+  };
 
   useEffect(() => {
-    console.warn('useEffect start');
-
-    if (originPlace && destinationPlace) {
-      console.warn('Redirect to map');
-    }
+    goToSearchResults();
   }, [originPlace, destinationPlace]);
+
   return (
     <SafeAreaView>
       <View style={styles.container}>
@@ -33,7 +40,6 @@ const DestinationSearch = (props) => {
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
             setOriginPlace({data, details});
-            console.log(data, details);
           }}
           suppressDefaultStyles
           styles={{
@@ -60,7 +66,6 @@ const DestinationSearch = (props) => {
           onPress={(data, details = null) => {
             // 'details' is provided when fetchDetails = true
             setDestinationPlace({data, details});
-            console.log(data, details);
           }}
           suppressDefaultStyles
           styles={{
