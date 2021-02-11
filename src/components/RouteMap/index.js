@@ -9,12 +9,12 @@ const RouteMap = (props) => {
   const API_KEY = 'AIzaSyATEu3fPvgqTOjXP2m_4xWh5WSKTYi2aMg';
   const route = useRoute();
   const origin = {
-    latitude: route.params.destinationPlace.data.geometry.location.lat,
-    longitude: route.params.destinationPlace.data.geometry.location.lng,
+    latitude: 28.450627,
+    longitude: -16.263045,
   };
   const destination = {
-    latitude: route.params.originPlace.data.geometry.location.lat,
-    longitude: route.params.originPlace.data.geometry.location.lng,
+    latitude: 28.456208,
+    longitude: -16.259098,
   };
 
   return (
@@ -29,8 +29,8 @@ const RouteMap = (props) => {
         showsUserLocation={true}
         style={{width: '100%', height: '100%'}}
         initialRegion={{
-          latitude: route.params.originPlace.data.geometry.location.lat,
-          longitude: route.params.originPlace.data.geometry.location.lng,
+          latitude: 28.450627,
+          longitude: -16.263045,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
