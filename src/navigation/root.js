@@ -4,6 +4,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 import HomeNavigator from './HomeNavigator';
 import {createDrawerNavigator} from '@react-navigation/drawer';
+import CustomDrawer from './CustomDrawer';
 
 const DrawerMenuItem = (props) => (
   <View style={{flex: 1}}>
@@ -15,7 +16,7 @@ const Drawer = createDrawerNavigator();
 const RootNavigation = (props) => {
   return (
     <NavigationContainer>
-      <Drawer.Navigator>
+      <Drawer.Navigator drawerContent={(props) => <CustomDrawer {...props} />}>
         <Drawer.Screen name="Home" component={HomeNavigator} />
         <Drawer.Screen name="Your trips">
           {() => <DrawerMenuItem name={'Your trips'} />}

@@ -5,16 +5,16 @@ import MapViewDirections from 'react-native-maps-directions';
 
 import {useRoute} from '@react-navigation/native';
 
-const RouteMap = (props) => {
+const RouteMap = ({origin, destination}) => {
   const API_KEY = 'AIzaSyATEu3fPvgqTOjXP2m_4xWh5WSKTYi2aMg';
   const route = useRoute();
-  const origin = {
-    latitude: 28.450627,
-    longitude: -16.263045,
+  const originLocation = {
+    latitude: origin.details.geometry.location.lat,
+    longitude: origin.details.geometry.location.lng,
   };
-  const destination = {
-    latitude: 28.456208,
-    longitude: -16.259098,
+  const destinationLocation = {
+    latitude: destination.details.geometry.location.lat,
+    longitude: destination.details.geometry.location.lng,
   };
 
   return (
@@ -29,20 +29,20 @@ const RouteMap = (props) => {
         showsUserLocation={true}
         style={{width: '100%', height: '100%'}}
         initialRegion={{
-          latitude: 28.450627,
-          longitude: -16.263045,
+          latitude: originLocation.latitude,
+          longitude: originLocation.longitude,
           latitudeDelta: 0.0922,
           longitudeDelta: 0.0421,
         }}>
         <MapViewDirections
-          origin={origin}
-          destination={destination}
+          origin={originLocation}
+          destination={destinationLocation}
           apikey={API_KEY}
           strokeWidth={5}
           strokeColor="black"
         />
-        <Marker coordinate={origin} title={'Origin'} />
-        <Marker coordinate={destination} title={'Destination'} />
+        <Marker coordinate={originLocation} title={'Origin'} />
+        <Marker coordinate={destinationLocation} title={'Destination'} />
       </MapView>
     </View>
   );
