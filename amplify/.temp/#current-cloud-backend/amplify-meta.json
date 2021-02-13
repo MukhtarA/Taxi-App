@@ -1,0 +1,95 @@
+{
+  "providers": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-taxiapp-dev-200627-authRole",
+      "UnauthRoleArn": "arn:aws:iam::923061277860:role/amplify-taxiapp-dev-200627-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::923061277860:role/amplify-taxiapp-dev-200627-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-taxiapp-dev-200627-deployment",
+      "UnauthRoleName": "amplify-taxiapp-dev-200627-unauthRole",
+      "StackName": "amplify-taxiapp-dev-200627",
+      "StackId": "arn:aws:cloudformation:ap-south-1:923061277860:stack/amplify-taxiapp-dev-200627/aed21460-6e04-11eb-878c-0a740d66a10e",
+      "AmplifyAppId": "d3svhgqrg05f4c"
+    }
+  },
+  "function": {
+    "taxiapp234b9e18234b9e18PostConfirmation": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda",
+      "lastBuildTimeStamp": "2021-02-13T17:23:44.177Z",
+      "lastPackageTimeStamp": "2021-02-13T17:23:45.534Z",
+      "distZipFilename": "taxiapp234b9e18234b9e18PostConfirmation-69544b59697670726835-build.zip",
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-taxiapp-dev-200627-deployment/amplify-cfn-templates/function/taxiapp234b9e18234b9e18PostConfirmation-cloudformation-template.json",
+        "logicalId": "functiontaxiapp234b9e18234b9e18PostConfirmation"
+      },
+      "lastPushTimeStamp": "2021-02-13T17:25:15.270Z",
+      "output": {
+        "Region": "ap-south-1",
+        "Arn": "arn:aws:lambda:ap-south-1:923061277860:function:taxiapp234b9e18234b9e18PostConfirmation-dev",
+        "Name": "taxiapp234b9e18234b9e18PostConfirmation-dev",
+        "LambdaExecutionRole": "taxiapp234b9e18234b9e18PostConfirmation-dev"
+      },
+      "lastPushDirHash": "zQMLzxXPRDxuz4+rYYsFscx5LRs="
+    }
+  },
+  "auth": {
+    "taxiapp234b9e18234b9e18": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [
+        {
+          "category": "function",
+          "resourceName": "taxiapp234b9e18234b9e18PostConfirmation",
+          "triggerProvider": "Cognito",
+          "attributes": [
+            "Arn",
+            "Name"
+          ]
+        }
+      ],
+      "customAuth": false,
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-taxiapp-dev-200627-deployment/amplify-cfn-templates/auth/taxiapp234b9e18234b9e18-cloudformation-template.yml",
+        "logicalId": "authtaxiapp234b9e18234b9e18"
+      },
+      "lastPushTimeStamp": "2021-02-13T17:25:15.270Z",
+      "output": {
+        "AppClientSecret": "1uoh0bboa40m6ths5ho794d5tbaboearjrqoh1g3phj1g89oc4og",
+        "UserPoolId": "ap-south-1_mPWkjI427",
+        "AppClientIDWeb": "3p7rt7jl36tm7437tiotshrfv0",
+        "AppClientID": "1ahsd2cl5ojpishgaoii9fjoj1",
+        "IdentityPoolId": "ap-south-1:c48a7462-468e-42c3-9a9f-05c1aed6c017",
+        "IdentityPoolName": "taxiapp234b9e18_identitypool_234b9e18__dev",
+        "UserPoolName": "taxiapp234b9e18_userpool_234b9e18"
+      },
+      "lastPushDirHash": "ZlaNtIEZCFYw1UgPNnbulRkHYxM="
+    }
+  },
+  "api": {
+    "taxiapp": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authtaxiapp234b9e18234b9e18"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        },
+        "GraphQLAPIIdOutput": "g5vwv3hqybbbzlhh6xazaoxora",
+        "GraphQLAPIEndpointOutput": "https://fojgaugdcbhpbng55a5asysgym.appsync-api.ap-south-1.amazonaws.com/graphql"
+      },
+      "providerMetadata": {
+        "s3TemplateURL": "https://s3.amazonaws.com/amplify-taxiapp-dev-200627-deployment/amplify-cfn-templates/api/cloudformation-template.json",
+        "logicalId": "apitaxiapp"
+      },
+      "lastPushTimeStamp": "2021-02-13T17:25:15.270Z",
+      "lastPushDirHash": "8n70dVi3VMZfaDJPaHDuMfA8Gvs="
+    }
+  }
+}

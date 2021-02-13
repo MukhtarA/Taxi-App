@@ -10,10 +10,15 @@ import 'react-native-gesture-handler';
 import React, {useEffect} from 'react';
 import {PermissionsAndroid, StatusBar, Platform} from 'react-native';
 import Geolocation from '@react-native-community/geolocation';
+import {withAuthenticator} from 'aws-amplify-react-native';
 
 import Router from './src/navigation/root';
 
 navigator.geolocation = require('@react-native-community/geolocation');
+
+import Amplify from 'aws-amplify';
+import config from './aws-exports';
+Amplify.configure(config);
 
 const App: () => React$Node = () => {
   const androidPermissions = async () => {
@@ -53,4 +58,4 @@ const App: () => React$Node = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App);
